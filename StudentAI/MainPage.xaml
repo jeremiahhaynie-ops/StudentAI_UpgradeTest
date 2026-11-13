@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+ xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+ x:Class="StudentAI.MainPage" Title="Axtrazz" BackgroundColor="#020608">
+    <Grid RowDefinitions="Auto,Auto,*,Auto" Padding="16" RowSpacing="10">
+        <Grid ColumnDefinitions="*,Auto">
+            <VerticalStackLayout>
+                <Label Text="A X T R A Z Z" FontSize="25" FontAttributes="Bold" TextColor="#5DEBFF" />
+                <Label Text="PERSONAL AI ASSISTANT" FontSize="10" TextColor="#698A92" />
+            </VerticalStackLayout>
+            <Button x:Name="ToolsButton" Grid.Column="1" Text="TOOLS" Clicked="OnToolsClicked" BackgroundColor="#12333C" TextColor="#8EF4FF" />
+        </Grid>
+        <Border Grid.Row="1" Stroke="#11343D" BackgroundColor="#030B0F" Padding="8">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="18" />
+            </Border.StrokeShape>
+            <Grid RowDefinitions="Auto,190,Auto">
+                <Label Text="AXTRAZZ CORE" TextColor="#6B9AA5" FontSize="10" />
+                <GraphicsView x:Name="OrbView" Grid.Row="1" HeightRequest="190" InputTransparent="True" />
+                <Label x:Name="OrbStatus" Grid.Row="2" Text="Ready" TextColor="#8EF4FF" HorizontalOptions="Center" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="2" Stroke="#12333C" BackgroundColor="#050D11" Padding="12">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="16" />
+            </Border.StrokeShape>
+            <Grid RowDefinitions="Auto,*" RowSpacing="8">
+                <Label x:Name="ChatTitle" Text="CONVERSATION" TextColor="#71ABB7" FontSize="11" />
+                <ScrollView x:Name="ChatScroll" Grid.Row="1">
+                    <Label x:Name="ChatLog" TextColor="#D3EEF2" FontSize="15" LineHeight="1.2" />
+                </ScrollView>
+            </Grid>
+        </Border>
+        <Border Grid.Row="3" Stroke="#1B5967" BackgroundColor="#061217" Padding="10">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="16" />
+            </Border.StrokeShape>
+            <Grid RowDefinitions="Auto,Auto,Auto" RowSpacing="5">
+                <Label x:Name="AttachmentLabel" Text="No document attached" FontSize="10" TextColor="#90BAC3" />
+                <Grid Grid.Row="1" ColumnDefinitions="*,Auto,Auto" ColumnSpacing="6">
+                    <Entry x:Name="MessageEntry" Placeholder="Message Axtrazz or type open youtube..." Completed="OnSendClicked" ReturnType="Send" TextColor="#E3FBFF" PlaceholderColor="#698A92" />
+                    <Button x:Name="SendButton" Grid.Column="1" Text="SEND" Clicked="OnSendClicked" BackgroundColor="#42E8FF" TextColor="#021015" />
+                    <Button Grid.Column="2" Text="STOP" Clicked="OnStopClicked" BackgroundColor="#42212B" TextColor="#FFCCD6" />
+                </Grid>
+                <Grid Grid.Row="2" ColumnDefinitions="*,Auto,Auto" ColumnSpacing="8">
+                    <Picker x:Name="ModePicker" Title="Mode" TextColor="#90BAC3" SelectedIndex="0">
+                        <Picker.Items>
+                            <x:String>Chat</x:String>
+                            <x:String>Explain</x:String>
+                            <x:String>Quiz</x:String>
+                            <x:String>Flashcards</x:String>
+                            <x:String>Summarize</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <Label Grid.Column="1" Text="VOICE" TextColor="#90BAC3" VerticalOptions="Center" FontSize="10" />
+                    <Switch x:Name="VoiceSwitch" Grid.Column="2" IsToggled="True" OnColor="#176979" ThumbColor="#75F0FF" Toggled="OnVoiceToggled" />
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</ContentPage>
